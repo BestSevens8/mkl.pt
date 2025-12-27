@@ -41,13 +41,17 @@
   box-shadow:0 10px 30px rgba(0,0,0,.08);
   transition:transform .25s ease;
 }
+
 .gitem:hover{ transform:translateY(-6px); }
+
 .gitem img{
   width:100%;
   height:260px;
   object-fit:cover;
   display:block;
-  /* Botões de filtro */
+}
+
+/* Botões de filtro */
 .filters{
   display:flex;
   flex-wrap:wrap;
@@ -66,15 +70,14 @@
   font-weight:600;
   transition:transform .2s ease, background .2s ease;
 }
+
 .fbtn:hover{ transform:translateY(-2px); }
 .fbtn.active{ background:var(--secondary); color:#fff; }
 
 /* esconder itens quando filtra */
 .gitem.hidden{ display:none; }
 
-}
-
-  </style>
+</style>
 </head>
 <body>
 
@@ -223,7 +226,9 @@
     });
   });
 
+
   setFilter("all");
+        
 </script>
 
 
