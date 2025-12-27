@@ -12,7 +12,7 @@
       --card:#ffffff;
       --accent:#d97b66;
       
-    .service-card{ cursor:pointer; }
+    
 
     }
     body {margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#333;}
@@ -31,6 +31,8 @@
     footer {background:var(--secondary);color:#fff;text-align:center;padding:36px 20px;}
     .imgcard{padding:0;overflow:hidden;}
     .imgcard img{width:100%;display:block;}
+    .service-card{ cursor:pointer; }
+
 
     .gallery{
   display:grid;
@@ -109,24 +111,29 @@
       <h4>Gravação a Laser</h4>
       <p>Personalização em madeira, MDF, acrílico e couro. Ideal para presentes únicos e decoração.</p>
     </div>
+
     <div class="card service-card" data-go="3d">
       <h4>Impressão 3D</h4>
       <p>Criação de peças personalizadas, lembranças, decoração infantil e soluções à medida.</p>
     </div>
+
     <div class="card service-card" data-go="sublimacao">
       <h4>Sublimação & DTF</h4>
       <p>Personalização de têxteis, vestuário e acessórios com alta durabilidade e cor.</p>
     </div>
+
     <div class="card service-card" data-go="cnc">
       <h4>CNC Router</h4>
       <p>Corte e gravação de peças em madeira e derivados para projetos personalizados.</p>
     </div>
+
     <div class="card service-card" data-go="bordado">
       <h4>Bordado Computorizado</h4>
       <p>Bordados personalizados para roupa, enxoval infantil e peças especiais.</p>
     </div>
   </div>
 </section>
+
 
 <section id="galeria">
   <h3>Galeria</h3>
@@ -210,29 +217,41 @@
   <p>© 2025 MKL – Mom’s & Kid’s Love<br>Laser • Impressão 3D • Sublimação/DTF • CNC • Bordado</p>
 </footer>
   <script>
-  const buttons = document.querySelectorAll(".fbtn");
-  const items = document.querySelectorAll(".gitem");
-
   function setFilter(filter){
+    const items = document.querySelectorAll(".gitem");
+    const buttons = document.querySelectorAll(".fbtn");
+
     items.forEach(el => {
       const cat = el.getAttribute("data-cat");
       const show = (filter === "all" || cat === filter);
       el.classList.toggle("hidden", !show);
     });
+
+    buttons.forEach(b => b.classList.remove("active"));
+    const activeBtn = document.querySelector(`.fbtn[data-filter="${filter}"]`) || document.querySelector(`.fbtn[data-filter="all"]`);
+    if(activeBtn) activeBtn.classList.add("active");
   }
 
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      buttons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
+  // clique nos botões dos filtros
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".fbtn");
+    if(btn){
       setFilter(btn.dataset.filter);
-    });
+    }
+
+    const card = e.target.closest(".service-card");
+    if(card){
+      const filter = card.dataset.go || "all";
+      setFilter(filter);
+      const galeria = document.querySelector("#galeria");
+      if(galeria) galeria.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   });
 
-
+  // default
   setFilter("all");
-        
 </script>
+
 
 
 </body>
