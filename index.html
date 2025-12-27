@@ -265,55 +265,66 @@
     });
 
     buttons.forEach(b => b.classList.remove("active"));
-    const activeBtn = document.querySelector(`.fbtn[data-filter="${filter}"]`) || document.querySelector(`.fbtn[data-filter="all"]`);
+    const activeBtn =
+      document.querySelector(`.fbtn[data-filter="${filter}"]`) ||
+      document.querySelector(`.fbtn[data-filter="all"]`);
     if(activeBtn) activeBtn.classList.add("active");
   }
 
-  // clique nos botões dos filtros
+  // LIGHTBOX refs
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  function openLightbox(src){
+    if(!lightbox || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightbox.classList.remove("hidden");
+  }
+
+  function closeLightbox(){
+    if(!lightbox || !lightboxImg) return;
+    lightbox.classList.add("hidden");
+    lightboxImg.src = "";
+  }
+
   document.addEventListener("click", (e) => {
+    // 1) LIGHTBOX: clicar numa foto (a.gitem)
+    const g = e.target.closest("a.gitem");
+    if(g){
+      e.preventDefault();
+      openLightbox(g.getAttribute("href"));
+      return;
+    }
+
+    // 2) fechar lightbox
+    if(e.target.classList.contains("lightbox-backdrop") || e.target.closest(".lightbox-close")){
+      closeLightbox();
+      return;
+    }
+
+    // 3) filtros
     const btn = e.target.closest(".fbtn");
     if(btn){
       setFilter(btn.dataset.filter);
+      return;
     }
 
+    // 4) serviços -> filtra + scroll
     const card = e.target.closest(".service-card");
     if(card){
       const filter = card.dataset.go || "all";
       setFilter(filter);
       const galeria = document.querySelector("#galeria");
       if(galeria) galeria.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
     }
   });
 
-  // default
+  document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape") closeLightbox();
+  });
+
   setFilter("all");
-
-    // LIGHTBOX
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-
-document.addEventListener("click", (e) => {
-  const link = e.target.closest("a.gitem");
-  if(link){
-    e.preventDefault();
-    const href = link.getAttribute("href");
-    lightboxImg.src = href;
-    lightbox.classList.remove("hidden");
-  }
-
-  if(e.target.closest(".lightbox-close") || e.target.classList.contains("lightbox-backdrop")){
-    lightbox.classList.add("hidden");
-    lightboxImg.src = "";
-  }
-});
-
-document.addEventListener("keydown", (e) => {
-  if(e.key === "Escape"){
-    lightbox.classList.add("hidden");
-    lightboxImg.src = "";
-  }
-});
-
 </script>
 
 
