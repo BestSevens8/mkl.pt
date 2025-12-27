@@ -159,13 +159,40 @@ section.alt + section::before{ display:none; }
   background:rgba(255,255,255,.55);
   padding:10px;
 }
+    header{
+  position:relative;
+  overflow:hidden;
+}
+     header{
+  position:relative;
+  overflow:hidden;
+}
+
+    /* logo como marca de água */
+     header::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("/mkl.pt/img/logo.png") center center no-repeat;
+  background-size:420px;
+  opacity:0.08;        /* controla a força do logo */
+  pointer-events:none;
+}
+    /* garante que o texto fica por cima */
+header *{
+  position:relative;
+  z-index:1;
+}
+
+
+
    
 </style>
 </head>
 <body>
 
 <header>
-  <img src="/mkl.pt/img/logo.jpg" alt="MKL – Mom’s & Kid’s Love" class="logo">
+  
   <h1>MKL</h1>
   <h2>Mom’s & Kid’s Love</h2>
   <p><strong>Personalização que cria memórias para a vida.</strong><br>
