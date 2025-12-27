@@ -173,7 +173,7 @@ section.alt + section::before{ display:none; }
   content:"";
   position:absolute;
   inset:0;
-  background:url("/mkl.pt/img/logo.jpg") center center no-repeat;
+  background:url("/mkl.pt/img/logo-1.png") center center no-repeat;
   background-size:420px;
   opacity:0.30;        /* controla a força do logo */
   pointer-events:none;
@@ -183,7 +183,12 @@ header *{
   position:relative;
   z-index:1;
 }
-
+    .logo-text{
+  width:min(520px, 92vw);
+  height:auto;
+  display:block;
+  margin:0 auto 10px;
+}
 
 
    
@@ -193,8 +198,7 @@ header *{
 
 <header>
   
-  <h1>MKL</h1>
-  <h2>Mom’s & Kid’s Love</h2>
+  <img src="/mkl.pt/img/logo-2.png" alt="MKL – Mom’s & Kid’s Love" class="logo-text">
   <p><strong>Personalização que cria memórias para a vida.</strong><br>
      Do design ao produto final — tudo feito com cuidado e detalhe.</p>
 
