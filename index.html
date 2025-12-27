@@ -178,29 +178,37 @@ section.alt + section::before{ display:none; }
   opacity:0.30;        /* controla a força do logo */
   pointer-events:none;
 }
-    /* garante que o texto fica por cima */
-header *{
+    /* garante que o conteúdo fica por cima da marca de água */
+.header-content{
   position:relative;
   z-index:1;
+  margin-top:100px;
 }
-    .logo-text{
+
+.logo-text{
   width:min(340px, 92vw);
   height:auto;
   display:block;
   margin:0 auto 10px;
 }
-    header p{
+
+header p{
   font-weight:600;
 }
-    .header-content{
-  margin-top:100px;
+
+/* descer só os botões sem mexer no resto */
+.header-buttons{
+  position:relative;
+  top:40px;
+  padding-top:0;
 }
-    .header-content .btn{
-  margin-top:30px;
+
+/* opcional: espaço entre botões */
+.header-buttons .btn + .btn{
+  margin-left:10px;
 }
-    .header-buttons{
-  padding-top:0px;
-}
+
+
 
  
 </style>
