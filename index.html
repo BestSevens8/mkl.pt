@@ -28,6 +28,52 @@
     footer {background:var(--secondary);color:#fff;text-align:center;padding:36px 20px;}
     .imgcard{padding:0;overflow:hidden;}
     .imgcard img{width:100%;display:block;}
+
+    .gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+.gitem{
+  display:block;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  transition:transform .25s ease;
+}
+.gitem:hover{ transform:translateY(-6px); }
+.gitem img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  display:block;
+  /* Botões de filtro */
+.filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+}
+
+.fbtn{
+  border:0;
+  padding:10px 16px;
+  border-radius:999px;
+  background:#fff;
+  color:var(--secondary);
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  cursor:pointer;
+  font-weight:600;
+  transition:transform .2s ease, background .2s ease;
+}
+.fbtn:hover{ transform:translateY(-2px); }
+.fbtn.active{ background:var(--secondary); color:#fff; }
+
+/* esconder itens quando filtra */
+.gitem.hidden{ display:none; }
+
+}
+
   </style>
 </head>
 <body>
@@ -79,40 +125,69 @@
 <section id="galeria">
   <h3>Galeria</h3>
   <p style="text-align:center;max-width:800px;margin:auto;">
-    Especialistas em <strong>presentes personalizados</strong>. Cada peça é criada com cuidado e a tecnologia certa para a sua ideia.
+    Especialistas em <strong>presentes personalizados</strong>. Filtre por técnica para ver exemplos reais.
   </p>
 
-  <div class="services" style="margin-top:40px;">
-    <!-- Troca estas imagens pelos teus ficheiros reais -->
-    <div class="card imgcard">
-      <img src="/mkl.pt/img/laser/laser-01.jpg" alt="Gravação a laser">
-    </div>
-    <div class="card imgcard">
-      <img src="/mkl.pt/img/laser/laser-02.jpg" alt="Trabalho personalizado">
-    </div>
-    <div class="card imgcard">
-      <img src="/mkl.pt/img/laser/laser-03.jpg" alt="Presente personalizado">
-    </div>
-    <div class="card imgcard">
-      <img src="/mkl.pt/img/laser/laser-04.jpg" alt="Trabalho personalizado">
-    </div>
-    <div class="card imgcard">
-      <img src="/mkl.pt/img/laser/laser-05.jpg" alt="Trabalho personalizado">
-    </div>
-    <div class="card imgcard">
-      <img src="/mkl.pt/img/laser/laser-06.jpg" alt="Trabalho personalizado">
-    </div>
-    <div class="card imgcard">
-      <img src="/mkl.pt/img/laser/laser-07.jpg" alt="Trabalho personalizado">
-    </div>
-    <div class="card imgcard">
-      <img src="/mkl.pt/img/laser/laser-08.jpg" alt="Trabalho personalizado">
-    </div>
-    <div class="card imgcard">
-      <img src="/mkl.pt/img/laser/laser-09.jpg" alt="Trabalho personalizado">
-    </div>
+  <div class="filters" style="margin-top:28px;">
+    <button class="fbtn active" data-filter="all">Tudo</button>
+    <button class="fbtn" data-filter="laser">Laser</button>
+    <button class="fbtn" data-filter="3d">Impressão 3D</button>
+    <button class="fbtn" data-filter="sublimacao">Sublimação/DTF</button>
+    <button class="fbtn" data-filter="bordado">Bordado</button>
+    <button class="fbtn" data-filter="cnc">CNC</button>
+  </div>
+  
+
+  <div class="gallery" style="margin-top:22px;">
+
+    <!-- LASER -->
+    <a class="gitem" data-cat="laser" href="/mkl.pt/img/laser/laser-01.jpg"><img src="/mkl.pt/img/laser/laser-01.jpg" alt="Laser 01"></a>
+    <a class="gitem" data-cat="laser" href="/mkl.pt/img/laser/laser-02.jpg"><img src="/mkl.pt/img/laser/laser-02.jpg" alt="Laser 02"></a>
+    <a class="gitem" data-cat="laser" href="/mkl.pt/img/laser/laser-03.jpg"><img src="/mkl.pt/img/laser/laser-03.jpg" alt="Laser 03"></a>
+    <a class="gitem" data-cat="laser" href="/mkl.pt/img/laser/laser-04.jpg"><img src="/mkl.pt/img/laser/laser-04.jpg" alt="Laser 04"></a>
+    <a class="gitem" data-cat="laser" href="/mkl.pt/img/laser/laser-05.jpg"><img src="/mkl.pt/img/laser/laser-05.jpg" alt="Laser 05"></a>
+    <a class="gitem" data-cat="laser" href="/mkl.pt/img/laser/laser-06.jpg"><img src="/mkl.pt/img/laser/laser-06.jpg" alt="Laser 06"></a>
+    <a class="gitem" data-cat="laser" href="/mkl.pt/img/laser/laser-07.jpg"><img src="/mkl.pt/img/laser/laser-07.jpg" alt="Laser 07"></a>
+    <a class="gitem" data-cat="laser" href="/mkl.pt/img/laser/laser-08.jpg"><img src="/mkl.pt/img/laser/laser-08.jpg" alt="Laser 08"></a>
+    <a class="gitem" data-cat="laser" href="/mkl.pt/img/laser/laser-09.jpg"><img src="/mkl.pt/img/laser/laser-09.jpg" alt="Laser 09"></a>
+
+    <!-- 3D -->
+    <a class="gitem" data-cat="3d" href="/mkl.pt/img/3d/3d-01.jpg"><img src="/mkl.pt/img/3d/3d-01.jpg" alt="3D 01"></a>
+    <a class="gitem" data-cat="3d" href="/mkl.pt/img/3d/3d-02.jpg"><img src="/mkl.pt/img/3d/3d-02.jpg" alt="3D 02"></a>
+    <a class="gitem" data-cat="3d" href="/mkl.pt/img/3d/3d-03.jpg"><img src="/mkl.pt/img/3d/3d-03.jpg" alt="3D 03"></a>
+    <a class="gitem" data-cat="3d" href="/mkl.pt/img/3d/3d-04.jpg"><img src="/mkl.pt/img/3d/3d-04.jpg" alt="3D 04"></a>
+    <a class="gitem" data-cat="3d" href="/mkl.pt/img/3d/3d-05.jpg"><img src="/mkl.pt/img/3d/3d-05.jpg" alt="3D 05"></a>
+    <a class="gitem" data-cat="3d" href="/mkl.pt/img/3d/3d-06.jpg"><img src="/mkl.pt/img/3d/3d-06.jpg" alt="3D 06"></a>
+    <a class="gitem" data-cat="3d" href="/mkl.pt/img/3d/3d-07.jpg"><img src="/mkl.pt/img/3d/3d-07.jpg" alt="3D 07"></a>
+
+
+    <!-- sublimacao -->
+    <a class="gitem" data-cat="sublimacao" href="/mkl.pt/img/sublimacao/sublimacao-01.jpg"><img src="/mkl.pt/img/sublimacao/sublimacao-01.jpg" alt="Sublimação 01"></a>
+    <a class="gitem" data-cat="sublimacao" href="/mkl.pt/img/sublimacao/sublimacao-02.jpg"><img src="/mkl.pt/img/sublimacao/sublimacao-02.jpg" alt="Sublimação 02"></a>
+    <a class="gitem" data-cat="sublimacao" href="/mkl.pt/img/sublimacao/sublimacao-03.jpg"><img src="/mkl.pt/img/sublimacao/sublimacao-03.jpg" alt="Sublimação 03"></a>
+    <a class="gitem" data-cat="sublimacao" href="/mkl.pt/img/sublimacao/sublimacao-04.jpg"><img src="/mkl.pt/img/sublimacao/sublimacao-04.jpg" alt="Sublimação 04"></a>
+    <a class="gitem" data-cat="sublimacao" href="/mkl.pt/img/sublimacao/sublimacao-05.jpg"><img src="/mkl.pt/img/sublimacao/sublimacao-05.jpg" alt="Sublimação 05"></a>
+    <a class="gitem" data-cat="sublimacao" href="/mkl.pt/img/sublimacao/sublimacao-06.jpg"><img src="/mkl.pt/img/sublimacao/sublimacao-06.jpg" alt="Sublimação 06"></a>
+    
+    
+    
+    <!-- bordado -->
+    <a class="gitem" data-cat="bordado" href="/mkl.pt/img/bordado/bordado-01.jpg"><img src="/mkl.pt/img/bordado/bordado-01.jpg" alt="Bordado 01"></a>
+
+
+
+
+    <!-- cnc-router -->
+    <a class="gitem" data-cat="cnc" href="/mkl.pt/img/cnc/cnc-01.jpg"><img src="/mkl.pt/img/cnc/cnc-01.jpg" alt="CNC 01"></a>
+
+
+
+    
+    
   </div>
 </section>
+
+
 
 <section id="contactos">
   <h3>Contactos</h3>
@@ -127,6 +202,29 @@
 <footer>
   <p>© 2025 MKL – Mom’s & Kid’s Love<br>Laser • Impressão 3D • Sublimação/DTF • CNC • Bordado</p>
 </footer>
+  <script>
+  const buttons = document.querySelectorAll(".fbtn");
+  const items = document.querySelectorAll(".gitem");
+
+  function setFilter(filter){
+    items.forEach(el => {
+      const cat = el.getAttribute("data-cat");
+      const show = (filter === "all" || cat === filter);
+      el.classList.toggle("hidden", !show);
+    });
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      setFilter(btn.dataset.filter);
+    });
+  });
+
+  setFilter("all");
+</script>
+
 
 </body>
 </html>
