@@ -155,7 +155,8 @@ section.alt + section::before{ display:none; }
 :root{
   --hero-height: 400px;          /* altura total da área bege (não muda quando mexes no conteúdo) */
   --hero-content-y: 140px;       /* desce/sobe TUDO (logo-2 + texto + botões) */
-  --hero-text-y: 30px;            /* desce/sobe SÓ o texto */
+  --hero-logo-y: 30px;           /* sobe/desce logo-2 */
+  --hero-text-y: 30px;           /* desce/sobe SÓ o texto */
   --hero-buttons-y: 26px;        /* desce/sobe SÓ os botões */
   --watermark-y: 80%;            /* posição vertical do logo-1 (0% topo, 100% fundo) */
   --watermark-size: 460px;       /* tamanho do logo-1 */
@@ -199,7 +200,10 @@ header::before{
   height:auto;
   display:block;
   margin:0 auto 20px;
+  position:relative;
+  top: var(--hero-logo-y);
 }
+
 
 /* Texto do header */
 header p{
