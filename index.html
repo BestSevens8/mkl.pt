@@ -153,14 +153,21 @@ section.alt + section::before{ display:none; }
    (mexe só nestes valores)
    ========================= */
 :root{
-  --hero-height: 400px;          /* altura total da área bege (não muda quando mexes no conteúdo) */
-  --hero-content-y: 150px;       /* desce/sobe TUDO (logo-2 + texto + botões) */
-  --hero-logo-y: -100px;           /* sobe/desce logo-2 */
-  --hero-text-y: -80px;           /* desce/sobe SÓ o texto */
-  --hero-buttons-y: -50px;        /* desce/sobe SÓ os botões */
-  --watermark-y: 80%;            /* posição vertical do logo-1 (0% topo, 100% fundo) */
+  /* ALTURA DA ÁREA BEGE (header) */
+  --hero-height: 400px;          /* controla só o fundo bege */
+
+  /* BLOCO PRINCIPAL (logo-2 + texto + botões) */
+  --hero-content-y: 150px;       /* desce/sobe todo o conteúdo da frente */
+
+  /* AJUSTES FINOS INDIVIDUAIS */
+  --hero-logo-y: -100px;         /* sobe/desce APENAS o logo-2 (letras) */
+  --hero-text-y: -80px;          /* sobe/desce APENAS o texto */
+  --hero-buttons-y: -50px;       /* sobe/desce APENAS os botões */
+
+  /* MARCA DE ÁGUA (logo-1) */
+  --watermark-y: 80%;            /* posição vertical (0% topo — 100% fundo) */
   --watermark-size: 500px;       /* tamanho do logo-1 */
-  --watermark-opacity: 0.10;     /* força do logo-1 */
+  --watermark-opacity: 0.10;     /* intensidade do logo-1 */
 }
 
 /* Header (fundo bege) */
