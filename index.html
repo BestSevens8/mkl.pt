@@ -253,6 +253,30 @@ header p{
     margin-left:0;
   }
 }
+    .testimonials{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+  margin-top:30px;
+}
+
+.tcard{
+  background:#fff;
+  padding:26px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.tcard p{
+  font-style:italic;
+  margin:0 0 12px;
+}
+
+.tcard span{
+  font-weight:600;
+  color:var(--secondary);
+}
+
 
 </style>
 </head>
@@ -443,6 +467,29 @@ header p{
   </p>
 </section>
 
+             <!-- testemunho e clacificação -->
+<section id="testemunhos" class="alt">
+  <h3>O que dizem os nossos clientes</h3>
+
+  <div class="testimonials">
+    <div class="tcard">
+      <p>“Trabalho incrível! O presente ficou exatamente como imaginei. Recomendo a 100%.”</p>
+      <span>— Ana S.</span>
+    </div>
+
+    <div class="tcard">
+      <p>“Atendimento impecável e muita atenção aos detalhes. Voltarei a encomendar.”</p>
+      <span>— João M.</span>
+    </div>
+
+    <div class="tcard">
+      <p>“Produtos personalizados com muito carinho. Adorei o resultado final.”</p>
+      <span>— Rita C.</span>
+    </div>
+  </div>
+</section>
+
+  
 <footer>
   <p>© 2025 MKL – Mom’s & Kid’s Love<br>Laser • Impressão 3D • Sublimação/DTF • Bordado</p>
 </footer>
